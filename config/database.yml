@@ -12,7 +12,7 @@ default: &default
 development:
   adapter: mysql2
   encoding: utf8
-  database: dialog_development
+  database: senkyonotomo_development
   pool: 5
   username: root
   password:
@@ -29,8 +29,8 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: dialog_production
+  database: senkyonotomo_production
   pool: 5
-  username:
-  password: 
+  username: senkyonotomo
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   host: localhost
