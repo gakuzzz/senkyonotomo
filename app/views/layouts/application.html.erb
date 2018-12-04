@@ -1,29 +1,66 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Dialog</title>
-    <%= csrf_meta_tags %>
+<html lang='ja'>
+<head>
+  <title>Dialog | 管理画面</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <%= javascript_include_tag "https://www.google.com/jsapi" %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to 'Dialog 管理画面', root_path,class:"navbar-brand" %>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+    				<li class="dropdown">
+    					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">admin <span class="caret"></span></a>
+    					<ul class="dropdown-menu" role="menu">
+                <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+    					</ul>
+    				</li>
+    			<% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid" style="margin-top:70px;">
+    <div class="row">
+      <div class="col-md-12">
+        <%= render '/shared/notice', notice: notice %>
+        <%= render '/shared/alert', alert: alert %>
+      </div>
+    </div>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <div class="row">
+      <div class="col-md-12">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
 
-  <body>
-    <header>
-        <nav>
-            <% if user_signed_in? %>
-                <strong><%= link_to current_user.id, homes_show_path %></strong>
-                <%= link_to 'プロフィール変更', edit_user_registration_path %>
-                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-            <% else %>
-                <%= link_to 'サインアップ', new_user_registration_path %>
-                <%= link_to 'ログイン', new_user_session_path %>
-            <% end %>
-        </nav>
-    </header>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <%= yield %>
+  <footer class="footer">
+    <hr/>
+    <div class="container" style="height:70px;">
+      <div class="row">
+        <div class="col-md-12" style="text-align:center;">
+          <p style="line-height:70px;"><%= link_to 'みんなの食堂', '#' %></p>
+        </div>
+      </div>
+    </div>
+  </footer>
   </body>
+
 </html>

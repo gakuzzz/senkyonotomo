@@ -1,11 +1,110 @@
-<h1>Homes#index</h1>
-<p>Find me in app/views/homes/index.html.erb</p>
 
 
-<%= file_field_tag :csv %><br>
-<%= file_field_tag :csv %><br>
-<%= file_field_tag :csv %><br>
-<%= file_field_tag :csv %><br>
+<div class="row">
+  <div class="col-md-12">
+    <%= form_with url: homes_create_csv_path do |f| %>
 
-<%= @address1 %>
-<%= @address2 %>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h4>
+          <strong>Wix</strong>
+        </h4>
+        <p>
+          <a href="https://www.wix.com/my-account/" target="_blank">Wix管理画面を別タブで開く</a>
+        </p>
+        <p class='description'>
+          <strong>一般販売の書籍版</strong>と<strong>予約販売の書籍版</strong>のCSVを管理画面からダウンロードしてセットしてください
+        </p>
+
+        <div class="form-group" style='height: 40px; margin-top:20px;'>
+          <div class="col-sm-12">
+            一般販売の書籍版
+            <%= f.file_field :wix_general %>
+          </div>
+        </div>
+        <div class="form-group" style='height: 40px;'>
+          <div class="col-sm-12">
+            予約販売の書籍版
+            <%= f.file_field :wix_reservation %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h4>
+          <strong>easypay</strong>
+        </h4>
+        <p>
+          <a href="https://easypay.jp/order/list" target="_blank">easypay管理画面を別タブで開く</a>
+        </p>
+        <p class='description'>
+          easypay管理画面からCSVをダウンロードしてセットしてください<br>
+          ※ こちらには<br>
+          <strong>一般販売PDF版</strong><br>
+          <strong>予約販売PDF版</strong><br>
+          <strong>一般販売セット版(書籍+PDF)</strong><br>
+          <strong>予約販売セット版(書籍+PDF)</strong><br>
+          が含まれています。
+        </p>
+        <div class="form-group" style='height: 40px; margin-top:20px;'>
+          <div class="col-sm-12">
+            <%= f.file_field :easypay_all %>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h4>
+              <strong>PDF版を含む販売の付き合わせ用住所情報</strong>
+            </h4>
+            <p>
+              <a href="https://www.wix.com/my-account/" target="_blank">Wix管理画面を別タブで開く</a>
+            </p>
+            <p class='description'>
+              easypayで決済した場合に住所情報が入らないためWixのフォームで取得した住所情報CSVをセットしてください
+            </p>
+            <div class="form-group" style='height: 40px; margin-top:20px;'>
+              <div class="col-sm-12">
+                一般住所
+                <%= f.file_field :easypay_general_address %>
+              </div>
+            </div>
+            <div class="form-group" style='height: 40px;'>
+              <div class="col-sm-12">
+                予約住所
+                <%= f.file_field :easypay_reservation_address %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h4>
+          <strong>amaozon</strong>
+        </h4>
+        <p class='description'>
+          amazonの管理画面から販売情報をダウンロードしてセットしてください
+        </p>
+        <div class="form-group" style='height: 40px; margin-top:20px;'>
+          <div class="col-sm-12">
+            <%= f.file_field :amazon_general %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+      <%= f.submit "CSVを読み込む", class:'btn btn-primary' %>
+    <% end %>
+
+  </div>
+</div>

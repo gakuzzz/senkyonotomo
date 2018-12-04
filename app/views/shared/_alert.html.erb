@@ -1,0 +1,19 @@
+<% if alert && alert != "既にログインしています。" %>
+  <% if alert.kind_of?(Hash) %>
+    <% alert.each do |key, value| %>
+      <div class="alert alert-danger" role="alert">
+        <%= value[0] %>
+      </div>
+    <% end %>
+  <% else %>
+    <% if alert == 'ログインしてください' %>
+      <div class="alert alert-success" role="alert">
+        <%= alert %>
+      </div>
+    <% else %>
+      <div class="alert alert-danger" role="alert">
+        <%= alert %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
