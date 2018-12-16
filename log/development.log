@@ -7762,3 +7762,252 @@ Sent data hoge.csv (0.4ms)
 Completed 200 OK in 32ms (Views: 0.3ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-12-16 15:51:39 +0900
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by HomesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (3.0ms)
+  Rendered shared/_notice.html.erb (0.3ms)
+  Rendered shared/_alert.html.erb (0.4ms)
+Completed 200 OK in 333ms (Views: 307.2ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/homes/create_csv.csv" for 127.0.0.1 at 2018-12-16 15:51:45 +0900
+Processing by HomesController#create_csv as CSV
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SAr0vA50WTwMicu4eUbC4ykPmQ6nMTHTo7MApzDz46ZpnuL6jPOihtDVDX6RYpxEBXL+n5I/cmQUubqhMnZLRA==", "amazon_general"=>#<ActionDispatch::Http::UploadedFile:0x007fe736190be8 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-98476-1nqxuhs.txt>, @original_filename="D_amazon_count.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"amazon_general\"; filename=\"D_amazon_count.txt\"\r\nContent-Type: text/plain\r\n">, "commit"=>"CSVを読み込む"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 15:52:40 +0900
+Processing by HomesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (1.5ms)
+  Rendered shared/_notice.html.erb (0.4ms)
+  Rendered shared/_alert.html.erb (0.5ms)
+Completed 200 OK in 50ms (Views: 37.8ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/homes/create_csv.csv" for 127.0.0.1 at 2018-12-16 15:52:50 +0900
+Processing by HomesController#create_csv as CSV
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"is8IPnaeulztCQKq7MJSHGWitEKXpp6YPIgu3hVzC62rWx549BlB5jFVxGwE5gy7Sd/T06Ko3S+LgpTYF/ajTw==", "amazon_general"=>#<ActionDispatch::Http::UploadedFile:0x007fe7315f4e00 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-98476-1hw2kbk.txt>, @original_filename="D_amazon_count.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"amazon_general\"; filename=\"D_amazon_count.txt\"\r\nContent-Type: text/plain\r\n">, "commit"=>"CSVを読み込む"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering homes/create_csv.csv.ruby
+  Rendered homes/create_csv.csv.ruby (1.7ms)
+  Rendering text template
+  Rendered text template (0.0ms)
+Sent data hoge.csv (3.0ms)
+Completed 200 OK in 16825ms (Views: 2.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 16:19:58 +0900
+Processing by HomesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (1.5ms)
+  Rendered shared/_notice.html.erb (0.3ms)
+  Rendered shared/_alert.html.erb (0.4ms)
+Completed 200 OK in 69ms (Views: 40.3ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/homes/create_csv.csv" for 127.0.0.1 at 2018-12-16 16:21:01 +0900
+Processing by HomesController#create_csv as CSV
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Cfxy1gYMQNnjqA51CIbsbZVNVqoi23tQv2sFf5FL1uMoaGSQhIu7Yz/0yLPgorLKuTAxOxfVOOcIYb95k85+AQ==", "wix_general"=>#<ActionDispatch::Http::UploadedFile:0x007fe73a8a22e8 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-98476-13gelkp.csv>, @original_filename="A_WIX一般_orders.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"wix_general\"; filename=\"A_WIX\xE4\xB8\x80\xE8\x88\xAC_orders.csv\"\r\nContent-Type: text/csv\r\n">, "wix_reservation"=>#<ActionDispatch::Http::UploadedFile:0x007fe73a8a2270 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-98476-1qkn1pr.csv>, @original_filename="B_WIX予約者_orders (1).csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"wix_reservation\"; filename=\"B_WIX\xE4\xBA\x88\xE7\xB4\x84\xE8\x80\x85_orders (1).csv\"\r\nContent-Type: text/csv\r\n">, "amazon_general"=>#<ActionDispatch::Http::UploadedFile:0x007fe73a8a21f8 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-98476-13iuq0x.txt>, @original_filename="D_amazon_count.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"amazon_general\"; filename=\"D_amazon_count.txt\"\r\nContent-Type: text/plain\r\n">, "commit"=>"CSVを読み込む"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 16ms (Views: 0.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/homes/create_csv.csv" for 127.0.0.1 at 2018-12-16 16:24:25 +0900
+Processing by HomesController#create_csv as CSV
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Cfxy1gYMQNnjqA51CIbsbZVNVqoi23tQv2sFf5FL1uMoaGSQhIu7Yz/0yLPgorLKuTAxOxfVOOcIYb95k85+AQ==", "wix_general"=>#<ActionDispatch::Http::UploadedFile:0x007fe739079090 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-98476-1nsshh1.csv>, @original_filename="A_WIX一般_orders.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"wix_general\"; filename=\"A_WIX\xE4\xB8\x80\xE8\x88\xAC_orders.csv\"\r\nContent-Type: text/csv\r\n">, "wix_reservation"=>#<ActionDispatch::Http::UploadedFile:0x007fe739079018 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-98476-5qfz7y.csv>, @original_filename="B_WIX予約者_orders (1).csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"wix_reservation\"; filename=\"B_WIX\xE4\xBA\x88\xE7\xB4\x84\xE8\x80\x85_orders (1).csv\"\r\nContent-Type: text/csv\r\n">, "amazon_general"=>#<ActionDispatch::Http::UploadedFile:0x007fe739078fa0 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-98476-afh5vz.txt>, @original_filename="D_amazon_count.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"amazon_general\"; filename=\"D_amazon_count.txt\"\r\nContent-Type: text/plain\r\n">, "commit"=>"CSVを読み込む"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 24ms (Views: 0.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 16:24:40 +0900
+Processing by HomesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (1.5ms)
+  Rendered shared/_notice.html.erb (0.4ms)
+  Rendered shared/_alert.html.erb (0.6ms)
+Completed 200 OK in 48ms (Views: 44.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/homes/create_csv.csv" for 127.0.0.1 at 2018-12-16 16:24:46 +0900
+Processing by HomesController#create_csv as CSV
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eTX+Ta285xf7Fb/qV48ISx7BqrsOxV3hDYHatxRfllJYoegLLzscrSdJeSy/q1bsMrzNKjvLHla6i2CxFto+sA==", "wix_general"=>#<ActionDispatch::Http::UploadedFile:0x007fe73902a800 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-98476-17djbu3.csv>, @original_filename="A_WIX一般_orders.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"wix_general\"; filename=\"A_WIX\xE4\xB8\x80\xE8\x88\xAC_orders.csv\"\r\nContent-Type: text/csv\r\n">, "wix_reservation"=>#<ActionDispatch::Http::UploadedFile:0x007fe73902a788 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-98476-1hvzkq0.csv>, @original_filename="B_WIX予約者_orders (1).csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"wix_reservation\"; filename=\"B_WIX\xE4\xBA\x88\xE7\xB4\x84\xE8\x80\x85_orders (1).csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"CSVを読み込む"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering homes/create_csv.csv.ruby
+  Rendered homes/create_csv.csv.ruby (2.7ms)
+  Rendering text template
+  Rendered text template (0.0ms)
+Sent data 出荷用データ_2018-12-16.csv (0.4ms)
+Completed 200 OK in 35ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 16:29:54 +0900
+Processing by HomesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (1.3ms)
+  Rendered shared/_notice.html.erb (0.3ms)
+  Rendered shared/_alert.html.erb (0.5ms)
+Completed 200 OK in 49ms (Views: 36.0ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/homes/create_csv.csv" for 127.0.0.1 at 2018-12-16 16:30:03 +0900
+Processing by HomesController#create_csv as CSV
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IWUk2/5NaiiYGZ27drHDo5H5Qnyb+9DngYKGTJqAo9YA8TKdfMqRkkRFW32elZ0EvYQl7a71k1A2iDxKmAULNA==", "wix_general"=>#<ActionDispatch::Http::UploadedFile:0x007fe736357dc8 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-98476-rh54qs.csv>, @original_filename="A_WIX一般_orders.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"wix_general\"; filename=\"A_WIX\xE4\xB8\x80\xE8\x88\xAC_orders.csv\"\r\nContent-Type: text/csv\r\n">, "wix_reservation"=>#<ActionDispatch::Http::UploadedFile:0x007fe736357ad0 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-98476-1wwwnob.csv>, @original_filename="B_WIX予約者_orders (1).csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"wix_reservation\"; filename=\"B_WIX\xE4\xBA\x88\xE7\xB4\x84\xE8\x80\x85_orders (1).csv\"\r\nContent-Type: text/csv\r\n">, "amazon_general"=>#<ActionDispatch::Http::UploadedFile:0x007fe736357670 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-98476-bu6g6j.txt>, @original_filename="D_amazon_count.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"amazon_general\"; filename=\"D_amazon_count.txt\"\r\nContent-Type: text/plain\r\n">, "commit"=>"CSVを読み込む"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 6ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/homes/create_csv.csv" for 127.0.0.1 at 2018-12-16 16:31:14 +0900
+Processing by HomesController#create_csv as CSV
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IWUk2/5NaiiYGZ27drHDo5H5Qnyb+9DngYKGTJqAo9YA8TKdfMqRkkRFW32elZ0EvYQl7a71k1A2iDxKmAULNA==", "wix_general"=>#<ActionDispatch::Http::UploadedFile:0x007fe73a1c22c0 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-98476-1l03gy5.csv>, @original_filename="A_WIX一般_orders.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"wix_general\"; filename=\"A_WIX\xE4\xB8\x80\xE8\x88\xAC_orders.csv\"\r\nContent-Type: text/csv\r\n">, "wix_reservation"=>#<ActionDispatch::Http::UploadedFile:0x007fe73a1c2248 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-98476-dhpni9.csv>, @original_filename="B_WIX予約者_orders (1).csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"wix_reservation\"; filename=\"B_WIX\xE4\xBA\x88\xE7\xB4\x84\xE8\x80\x85_orders (1).csv\"\r\nContent-Type: text/csv\r\n">, "amazon_general"=>#<ActionDispatch::Http::UploadedFile:0x007fe73a1c21d0 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-98476-yxy44d.txt>, @original_filename="D_amazon_count.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"amazon_general\"; filename=\"D_amazon_count.txt\"\r\nContent-Type: text/plain\r\n">, "commit"=>"CSVを読み込む"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 15ms (Views: 0.3ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/homes/create_csv.csv" for 127.0.0.1 at 2018-12-16 16:31:22 +0900
+Processing by HomesController#create_csv as CSV
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IWUk2/5NaiiYGZ27drHDo5H5Qnyb+9DngYKGTJqAo9YA8TKdfMqRkkRFW32elZ0EvYQl7a71k1A2iDxKmAULNA==", "wix_general"=>#<ActionDispatch::Http::UploadedFile:0x007fe738fc0b08 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-98476-okwd2v.csv>, @original_filename="A_WIX一般_orders.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"wix_general\"; filename=\"A_WIX\xE4\xB8\x80\xE8\x88\xAC_orders.csv\"\r\nContent-Type: text/csv\r\n">, "wix_reservation"=>#<ActionDispatch::Http::UploadedFile:0x007fe738fc0a90 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-98476-1nhqbx2.csv>, @original_filename="B_WIX予約者_orders (1).csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"wix_reservation\"; filename=\"B_WIX\xE4\xBA\x88\xE7\xB4\x84\xE8\x80\x85_orders (1).csv\"\r\nContent-Type: text/csv\r\n">, "amazon_general"=>#<ActionDispatch::Http::UploadedFile:0x007fe738fc0a18 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-98476-hqe9ha.txt>, @original_filename="D_amazon_count.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"amazon_general\"; filename=\"D_amazon_count.txt\"\r\nContent-Type: text/plain\r\n">, "commit"=>"CSVを読み込む"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 31ms (Views: 0.6ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/homes/create_csv.csv" for 127.0.0.1 at 2018-12-16 16:31:31 +0900
+Processing by HomesController#create_csv as CSV
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IWUk2/5NaiiYGZ27drHDo5H5Qnyb+9DngYKGTJqAo9YA8TKdfMqRkkRFW32elZ0EvYQl7a71k1A2iDxKmAULNA==", "wix_general"=>#<ActionDispatch::Http::UploadedFile:0x007fe7391eb7e8 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-98476-1lfputl.csv>, @original_filename="A_WIX一般_orders.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"wix_general\"; filename=\"A_WIX\xE4\xB8\x80\xE8\x88\xAC_orders.csv\"\r\nContent-Type: text/csv\r\n">, "wix_reservation"=>#<ActionDispatch::Http::UploadedFile:0x007fe7391eb770 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-98476-18degxu.csv>, @original_filename="B_WIX予約者_orders (1).csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"wix_reservation\"; filename=\"B_WIX\xE4\xBA\x88\xE7\xB4\x84\xE8\x80\x85_orders (1).csv\"\r\nContent-Type: text/csv\r\n">, "amazon_general"=>#<ActionDispatch::Http::UploadedFile:0x007fe7391eb6f8 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-98476-1ipea4q.txt>, @original_filename="D_amazon_count.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"amazon_general\"; filename=\"D_amazon_count.txt\"\r\nContent-Type: text/plain\r\n">, "commit"=>"CSVを読み込む"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Started GET "/" for 127.0.0.1 at 2018-12-16 16:34:59 +0900
+Completed 500 Internal Server Error in 211552ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Processing by HomesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (1.1ms)
+  Rendered shared/_notice.html.erb (0.3ms)
+  Rendered shared/_alert.html.erb (0.4ms)
+Completed 200 OK in 54ms (Views: 41.5ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/homes/create_csv.csv" for 127.0.0.1 at 2018-12-16 16:39:30 +0900
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by HomesController#create_csv as CSV
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iUyixFGWk1WBz7pA9HLHdbhH89eM/+6dG2LA24jBS/6o2LSC0xFo712TfIYcVpnSlDqURrnxrSqsaHrdikTjHA==", "wix_general"=>#<ActionDispatch::Http::UploadedFile:0x007fcb183ebd78 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-19558-p4539i.csv>, @original_filename="A_WIX一般_orders.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"wix_general\"; filename=\"A_WIX\xE4\xB8\x80\xE8\x88\xAC_orders.csv\"\r\nContent-Type: text/csv\r\n">, "wix_reservation"=>#<ActionDispatch::Http::UploadedFile:0x007fcb183ebd00 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-19558-8s4sqf.csv>, @original_filename="B_WIX予約者_orders (1).csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"wix_reservation\"; filename=\"B_WIX\xE4\xBA\x88\xE7\xB4\x84\xE8\x80\x85_orders (1).csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"CSVを読み込む"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering homes/create_csv.csv.ruby
+  Rendered homes/create_csv.csv.ruby (8.5ms)
+  Rendering text template
+  Rendered text template (0.0ms)
+Sent data 出荷用データ_2018-12-16.csv (1.4ms)
+Completed 200 OK in 62ms (Views: 1.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 16:41:59 +0900
+Processing by HomesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (5.2ms)
+  Rendered shared/_notice.html.erb (0.3ms)
+  Rendered shared/_alert.html.erb (0.4ms)
+Completed 200 OK in 287ms (Views: 273.7ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/homes/create_csv.csv" for 127.0.0.1 at 2018-12-16 16:42:06 +0900
+Processing by HomesController#create_csv as CSV
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2fyW7L8OyniLjWM7ppR6+nIK/xGHdSkrGR5qDvlxv8z4aICqPYkxwlfRpf1OsCRdXneYgLJ7apyuFNAI+/QXLg==", "wix_general"=>#<ActionDispatch::Http::UploadedFile:0x007fcb187ef0a0 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-19558-2kn4y6.csv>, @original_filename="A_WIX一般_orders.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"wix_general\"; filename=\"A_WIX\xE4\xB8\x80\xE8\x88\xAC_orders.csv\"\r\nContent-Type: text/csv\r\n">, "wix_reservation"=>#<ActionDispatch::Http::UploadedFile:0x007fcb187ef028 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-19558-72q6gg.csv>, @original_filename="B_WIX予約者_orders (1).csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"wix_reservation\"; filename=\"B_WIX\xE4\xBA\x88\xE7\xB4\x84\xE8\x80\x85_orders (1).csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"CSVを読み込む"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering homes/create_csv.csv.ruby
+  Rendered homes/create_csv.csv.ruby (3.0ms)
+  Rendering text template
+  Rendered text template (0.0ms)
+Sent data 出荷用データ_2018-12-16.csv (0.3ms)
+Completed 200 OK in 32ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 16:44:12 +0900
+Processing by HomesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (1.3ms)
+  Rendered shared/_notice.html.erb (0.3ms)
+  Rendered shared/_alert.html.erb (0.4ms)
+Completed 200 OK in 49ms (Views: 36.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 16:44:35 +0900
+Processing by HomesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (1.1ms)
+  Rendered shared/_notice.html.erb (0.3ms)
+  Rendered shared/_alert.html.erb (0.4ms)
+Completed 200 OK in 39ms (Views: 35.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/homes/create_csv.csv" for 127.0.0.1 at 2018-12-16 16:44:42 +0900
+Processing by HomesController#create_csv as CSV
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sXNdkI4bKZJTu7qNL8jY4mwX9xlO7E282Bh1Zsogg9mQ50vWDJzSKI/nfEvH7IZFQGqQiHviDgtvEs9gyKUrOw==", "wix_general"=>#<ActionDispatch::Http::UploadedFile:0x007fcb19873368 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-19558-2cd5at.csv>, @original_filename="A_WIX一般_orders.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"wix_general\"; filename=\"A_WIX\xE4\xB8\x80\xE8\x88\xAC_orders.csv\"\r\nContent-Type: text/csv\r\n">, "wix_reservation"=>#<ActionDispatch::Http::UploadedFile:0x007fcb198732f0 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-19558-d0dk2x.csv>, @original_filename="B_WIX予約者_orders (1).csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"wix_reservation\"; filename=\"B_WIX\xE4\xBA\x88\xE7\xB4\x84\xE8\x80\x85_orders (1).csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"CSVを読み込む"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 6ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/homes/create_csv.csv" for 127.0.0.1 at 2018-12-16 16:45:03 +0900
+Processing by HomesController#create_csv as CSV
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sXNdkI4bKZJTu7qNL8jY4mwX9xlO7E282Bh1Zsogg9mQ50vWDJzSKI/nfEvH7IZFQGqQiHviDgtvEs9gyKUrOw==", "wix_general"=>#<ActionDispatch::Http::UploadedFile:0x007fcb20482130 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-19558-u3mpeb.csv>, @original_filename="A_WIX一般_orders.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"wix_general\"; filename=\"A_WIX\xE4\xB8\x80\xE8\x88\xAC_orders.csv\"\r\nContent-Type: text/csv\r\n">, "wix_reservation"=>#<ActionDispatch::Http::UploadedFile:0x007fcb204820b8 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-19558-1sk3fh.csv>, @original_filename="B_WIX予約者_orders (1).csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"wix_reservation\"; filename=\"B_WIX\xE4\xBA\x88\xE7\xB4\x84\xE8\x80\x85_orders (1).csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"CSVを読み込む"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering homes/create_csv.csv.ruby
+  Rendered homes/create_csv.csv.ruby (3.9ms)
+  Rendering text template
+  Rendered text template (0.0ms)
+Sent data 出荷用データ_2018-12-16.csv (1.5ms)
+Completed 200 OK in 64ms (Views: 1.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 16:48:12 +0900
+Processing by HomesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (2.3ms)
+  Rendered shared/_notice.html.erb (0.5ms)
+  Rendered shared/_alert.html.erb (0.6ms)
+Completed 200 OK in 59ms (Views: 46.9ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/homes/create_csv.csv" for 127.0.0.1 at 2018-12-16 16:48:23 +0900
+Processing by HomesController#create_csv as CSV
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ebyl1una19Nd9n4UBWXkXt5DiqwiJjCIALdHXbEyLvhYKLOQa10saYGquNLtQbr58j7tPRcocz+3vf1bs7eGGg==", "wix_general"=>#<ActionDispatch::Http::UploadedFile:0x007fcb1e0186a0 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-19558-j8caxa.csv>, @original_filename="A_WIX一般_orders.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"wix_general\"; filename=\"A_WIX\xE4\xB8\x80\xE8\x88\xAC_orders.csv\"\r\nContent-Type: text/csv\r\n">, "wix_reservation"=>#<ActionDispatch::Http::UploadedFile:0x007fcb1e018510 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-19558-13cuqwx.csv>, @original_filename="B_WIX予約者_orders (1).csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"wix_reservation\"; filename=\"B_WIX\xE4\xBA\x88\xE7\xB4\x84\xE8\x80\x85_orders (1).csv\"\r\nContent-Type: text/csv\r\n">, "amazon_general"=>#<ActionDispatch::Http::UploadedFile:0x007fcb1e018420 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-19558-15rbsk.txt>, @original_filename="D_amazon_count.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"amazon_general\"; filename=\"D_amazon_count.txt\"\r\nContent-Type: text/plain\r\n">, "commit"=>"CSVを読み込む"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 32ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-16 16:48:29 +0900
+Processing by HomesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (2.4ms)
+  Rendered shared/_notice.html.erb (0.7ms)
+  Rendered shared/_alert.html.erb (0.4ms)
+Completed 200 OK in 50ms (Views: 46.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/homes/create_csv.csv" for 127.0.0.1 at 2018-12-16 16:48:42 +0900
+Processing by HomesController#create_csv as CSV
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hAwUq0fXWwNAzsl6K/MNT1uCe5ASKaJsSp9dpX2tKAOlmALtxVCguZySD7zD11Pod/8cAScn4dv9leejfyiA4Q==", "wix_general"=>#<ActionDispatch::Http::UploadedFile:0x007fcb21934088 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-19558-1ikxrj7.csv>, @original_filename="A_WIX一般_orders.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"wix_general\"; filename=\"A_WIX\xE4\xB8\x80\xE8\x88\xAC_orders.csv\"\r\nContent-Type: text/csv\r\n">, "wix_reservation"=>#<ActionDispatch::Http::UploadedFile:0x007fcb21934010 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20181216-19558-2cv2i.csv>, @original_filename="B_WIX予約者_orders (1).csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"wix_reservation\"; filename=\"B_WIX\xE4\xBA\x88\xE7\xB4\x84\xE8\x80\x85_orders (1).csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"CSVを読み込む"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering homes/create_csv.csv.ruby
+  Rendered homes/create_csv.csv.ruby (6.7ms)
+  Rendering text template
+  Rendered text template (0.0ms)
+Sent data 出荷用データ_2018-12-16.csv (0.4ms)
+Completed 200 OK in 44ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
