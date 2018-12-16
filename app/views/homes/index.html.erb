@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <%= form_with url: homes_create_csv_path do |f| %>
+    <%= form_tag homes_create_csv_path(format: :csv), method: 'post', multipart: true do %>
 
     <div class="panel panel-default">
       <div class="panel-body">
@@ -19,13 +19,13 @@
         <div class="form-group" style='height: 40px; margin-top:20px;'>
           <div class="col-sm-12">
             一般販売の書籍版
-            <%= f.file_field :wix_general %>
+            <%= file_field_tag :wix_general %>
           </div>
         </div>
         <div class="form-group" style='height: 40px;'>
           <div class="col-sm-12">
             予約販売の書籍版
-            <%= f.file_field :wix_reservation %>
+            <%= file_field_tag :wix_reservation %>
           </div>
         </div>
       </div>
@@ -50,7 +50,7 @@
         </p>
         <div class="form-group" style='height: 40px; margin-top:20px;'>
           <div class="col-sm-12">
-            <%= f.file_field :easypay_all %>
+            <%= file_field_tag :easypay_all %>
           </div>
         </div>
 
@@ -68,13 +68,13 @@
             <div class="form-group" style='height: 40px; margin-top:20px;'>
               <div class="col-sm-12">
                 一般住所
-                <%= f.file_field :easypay_general_address %>
+                <%= file_field_tag :easypay_general_address %>
               </div>
             </div>
             <div class="form-group" style='height: 40px;'>
               <div class="col-sm-12">
                 予約住所
-                <%= f.file_field :easypay_reservation_address %>
+                <%= file_field_tag :easypay_reservation_address %>
               </div>
             </div>
           </div>
@@ -96,15 +96,12 @@
         </p>
         <div class="form-group" style='height: 40px; margin-top:20px;'>
           <div class="col-sm-12">
-            <%= f.file_field :amazon_general %>
+            <%= file_field_tag :amazon_general %>
           </div>
         </div>
       </div>
     </div>
-
-
-      <%= f.submit "CSVを読み込む", class:'btn btn-primary' %>
+      <%= submit_tag 'CSVを読み込む', class:'btn btn-primary' %>
     <% end %>
-
   </div>
 </div>
