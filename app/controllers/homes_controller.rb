@@ -6,39 +6,34 @@ class HomesController < BaseController
 
 
   def create_csv
+    if params[:publish_date].blank?
+      return redirect_to root_path, alert: "出荷日を入力してください"
+    end
+
 
     @results = []
     # Wix一般・予約
     if params[:wix_general].present? || params[:wix_reservation].present?
       if params[:wix_general].present?
-        @results += wix_data(params[:wix_general])
+        @results += wix_data(params[:wix_general], params[:publish_date])
       end
 
       if params[:wix_reservation].present?
-        @results += wix_data(params[:wix_reservation])
+        @results += wix_data(params[:wix_reservation], params[:publish_date])
       end
     end
 
-    # easypay
-    if params[:easypay_all].present? &&
-      (params[:easypay_general_address].present? ||
-       params[:easypay_reservation_address].present?)
-
-      @results += easypay_data(params[:easypay_all])
-      addresses = []
-
-      if params[:easypay_general_address].present?
-        addresses += easypay_address_data(params[:easypay_general_address])
-      end
-
-      if params[:easypay_reservation_address].present?
-        addresses += easypay_address_data(params[:easypay_reservation_address])
-      end
+    if params[:easypay_all].present?
+      @results += easypay_data(params[:easypay_all], params[:publish_date])
     end
 
     # amazon
     if params[:amazon_general].present?
-      @results += amazon_data(params[:amazon_general])
+      @results += amazon_data(params[:amazon_general], params[:publish_date])
+    end
+
+    if @results.blank?
+      return redirect_to root_path, alert: "販売データがセットされていません"
     end
 
     respond_to do |format|
@@ -46,9 +41,11 @@ class HomesController < BaseController
         send_data render_to_string, filename: "出荷用データ_#{Time.now.to_date.to_s}.csv", type: 'text/csv; charset=shift_jis'
       end
     end
+
+    cookies[:dialogue_exported] = { value: 'yes', expires: 1.minutes.from_now  }
   end
 
-  def amazon_data(file)
+  def amazon_data(file, publish_date)
     encoding = "Shift_JIS:UTF-8"
     encode = NKF.guess(File.read(file.path)).name
     if encode == "UTF-8"
@@ -57,19 +54,23 @@ class HomesController < BaseController
     result = []
     count = 1
 
+    p_date = publish_date.split("/")
+    publish_date_str = p_date[1] + p_date[2]
+
     CSV.foreach(file.path, encoding: encoding, col_sep: "\t", headers: true) do |row|
       begin
+
         info = {}
         # 配送会社に渡す情報必要な情報
-        order_id = row["order-id"]
+        order_id      = row["order-id"]
         order_item_id = row["order-item-id"]
         purchase_date = row["purchase-date"]
         payments_date = row["payments-date"]
-        buyer_email = row["buyer-email"]
-        buyer_name = row["buyer-name"]
+        buyer_email   = row["buyer-email"]
+        buyer_name    = row["buyer-name"]
         buyer_phone_number = row["buyer-phone-number"]
-        sku = row["sku"]
-        product_name = row["product-name"]
+        sku           = row["sku"]
+        product_name  = row["product-name"]
         quantity_purchased = row["quantity-purchased"]
         currency = row["currency"]
         item_price = row["item-price"]
@@ -91,24 +92,30 @@ class HomesController < BaseController
         delivery_time_zone = row["delivery-time-zone"]
         delivery_Instructions = row["delivery-Instructions"]
 
-        info[:order_from] = "amaozon"
-        info[:order_number] = "snky-"
-        info[:date] = purchase_date
+        address1 = ship_address_1.to_s + ship_address_2.to_s + ship_address_3.to_s
+        logger.debug(address1)
+
+        date = Date.strptime(purchase_date, '%Y-%m-%dT%H:%M:%S%z')
+        billing_date = date.strftime("%Y/%m/%d")
+
+
+        info[:order_number] = "snky-" + publish_date_str + "-" + sprintf("%03d", count.to_s)
+        info[:date] = billing_date
         info[:settlement_code] = "55"
         info[:settlement_section] = "14"
         info[:zip_code] = zip_code(ship_postal_code)
         info[:prefecture] = ship_state
-        info[:address1] = ship_address_1 + ship_address_2 + ship_address_3
+        info[:address1] = address1.gsub("−", "-")
         info[:address2] = ""
-        info[:campany] = "JP"
+        info[:campany] = ""
         info[:name] = buyer_name
-        info[:kana_name] = ""
-        info[:tel] = phone_number(buyer_phone_number)
+        info[:kana_name] = "　"
+        info[:tel] = phone_number(buyer_phone_number.to_s)
         info[:email] = buyer_email
-        info[:product_total_price] = "0"
+        info[:product_total_price] = item_price.to_s
         info[:fee] = "0"
         info[:delivery_fee] = "0"
-        info[:total_price] = row["金額"]
+        info[:total_price] = item_price.to_s
         info[:site_code] = "snky"
         info[:remarks] = ""
         info[:delvery_time] = ""
@@ -117,20 +124,21 @@ class HomesController < BaseController
         info[:stock_section] = "01"
         info[:product_code] = sku
         info[:product_name] = product_name
-        info[:price] = item_price
+        info[:price] = item_price.to_s
         info[:amount] = quantity_purchased
-        info[:detail_price] = ""
+        info[:detail_price] = item_price.to_s
 
         count += 1
         result << info
       rescue
-        raise $!, "easypay住所データの #{count} 行目を処理中にエラーが発生しました。\n#{$!.message}", $!.backtrace
+        raise $!, "amazon住所データの #{count} 行目を処理中にエラーが発生しました。\n#{$!.message}", $!.backtrace
       end
     end
     result
   end
 
-  def easypay_address_data(file)
+
+  def easypay_data(file, publish_date)
     encoding = "Shift_JIS:UTF-8"
     encode = NKF.guess(File.read(file.path)).name
     if encode == "UTF-8"
@@ -138,67 +146,31 @@ class HomesController < BaseController
     end
     result = []
     count = 1
+
+    p_date = publish_date.split("/")
+    publish_date_str = p_date[1] + p_date[2]
+
     CSV.foreach(file.path, encoding: encoding, headers: true) do |row|
       begin
-        info = {}
-        name = ""
-        unless row["First Name"].blank?
-          name += row["First Name"].to_s
-        end
-        unless row["Last Name"].blank?
-          name += row["Last Name"].to_s
-        end
 
-        # 配送会社に渡す情報必要な情報
-        info[:name] = name.gsub(/[\xe2\x80\x8b]+/, '').gsub(" ", "")
-        info[:email] = row["Email"] ? row["Email"].gsub(/[\xe2\x80\x8b]+/, '').gsub(" ", "") : ""
-        info[:tel] = row["Phone"] ? phone_number(row["Phone"].gsub(/[\xe2\x80\x8b]+/, '').gsub(" ", "")) : ""
-        info[:street] = row["Address Street"] ? row["Address Street"].gsub(/[\xe2\x80\x8b]+/, '').gsub(" ", "").sjisable : ""
-        info[:city] = row["Address City"] ? row["Address City"].gsub(/[\xe2\x80\x8b]+/, '').gsub(" ", "").sjisable : ""
-        info[:state] = row["Address State"] ? row["Address State"].gsub(/[\xe2\x80\x8b]+/, '').gsub(" ", "").sjisable : ""
-        info[:zipcode] = row["Address Zip"] ? zip_code(row["Address Zip"]) : ""
-        info[:country] = row["Address Country"] ? row["Address Country"] : ""
-        info[:amount] = row["Total Purchases"] ? row["Total Purchases"] : ""
-        info[:price] = row["Total Spent"] ? row["Total Spent"] : ""
-
-        count += 1
-        result << info
-      rescue
-        raise $!, "easypay住所データの #{count} 行目を処理中にエラーが発生しました。\n#{$!.message}", $!.backtrace
-      end
-    end
-    result
-  end
-
-  def easypay_data(file)
-    encoding = "Shift_JIS:UTF-8"
-    encode = NKF.guess(File.read(file.path)).name
-    if encode == "UTF-8"
-      encoding = "UTF-8"
-    end
-    result = []
-    count = 1
-    CSV.foreach(file.path, encoding: encoding, headers: true) do |row|
-      begin
         info = {}
         # 配送会社に渡す情報必要な情報
-        info[:order_from] = "easypay"
-        info[:order_number] = "snky-"
+        info[:order_number] = "snky-" + publish_date_str + "-" + sprintf("%03d", count.to_s)
         info[:date] = row["注文日時"]
         info[:settlement_code] = "55"
         info[:settlement_section] = "14"
-        info[:zip_code] = zip_code("")
+        info[:zip_code] = "住所はwixの情報と照らし合わせて入力してください"
         info[:prefecture] = ""
         info[:address1] = ""
         info[:address2] = ""
         info[:campany] = ""
         info[:name] = row["購入者名"]
-        info[:kana_name] = ""
+        info[:kana_name] = "　"
         info[:tel] = ""
         info[:email] = row["購入者メールアドレス"]
-        info[:product_total_price] = "0"
+        info[:product_total_price] = easypay_no_fee_price(row["金額"])
         info[:fee] = "0"
-        info[:delivery_fee] = "0"
+        info[:delivery_fee] = "600"
         info[:total_price] = row["金額"]
         info[:site_code] = "snky"
         info[:remarks] = ""
@@ -207,28 +179,47 @@ class HomesController < BaseController
         info[:delivery_section] = "08"
         info[:stock_section] = "01"
         info[:product_code] = "9784909687005"
-        info[:product_name] = ""
-        info[:price] = ""
+        info[:product_name] = "『フルカラー図解 地方選挙必勝の手引』"
+        info[:price] = easypay_no_fee_price(row["金額"])
         info[:amount] = "1"
-        info[:detail_price] = ""
+        info[:detail_price] = easypay_no_fee_price(row["金額"])
 
-        count += 1
-        result << info
+        if row["金額"] == "17663" || row["金額"] == "14000"
+          count += 1
+          result << info
+        end
+
       rescue
+        binding.pry
         raise $!, "easypayの #{count} 行目を処理中にエラーが発生しました。\n#{$!.message}", $!.backtrace
       end
     end
     result
   end
 
+  # 発送手数料、消費税抜き金額
+  def easypay_no_fee_price(price)
+    # 【セット版】一般
+    return "15800" if price == "17663"
+
+    # 【セット版】紹介販売
+    return "14000" if price == "14000"
+
+    return 0
+
+  end
+
 
   # Wixのデータを取得
-  def wix_data(file)
+  def wix_data(file, publish_date)
     encoding = "Shift_JIS:UTF-8"
     encode = NKF.guess(File.read(file.path)).name
     if encode == "UTF-8"
       encoding = "UTF-8"
     end
+
+    p_date = publish_date.split("/")
+    publish_date_str = p_date[1] + p_date[2]
 
     result = []
     count = 1
@@ -248,7 +239,7 @@ class HomesController < BaseController
         end
 
         # 配送会社に渡す情報必要な情報
-        info[:order_number] = "snky-" + day.to_s + "-" + sprintf("%03d", count.to_s)
+        info[:order_number] = "snky-" + publish_date_str + "-" + sprintf("%03d", count.to_s)
         info[:date] = billing_date
         info[:settlement_code] = "55"
         info[:settlement_section] = "14"
@@ -258,7 +249,7 @@ class HomesController < BaseController
         info[:address2] = ""
         info[:campany] = ""
         info[:name] = row["Delivery Customer"].gsub(/[\xe2\x80\x8b]+/, '').gsub(" ", "")
-        info[:kana_name] = ""
+        info[:kana_name] = "　"
         info[:tel] = phone_number(row["Buyer's Phone #"].gsub!(/\"/, ''))
         info[:email] = row["Buyer's Email"].gsub(/[\xe2\x80\x8b]+/, '').gsub(" ", "")
         info[:product_total_price] = row["Item's Price"]
@@ -269,7 +260,7 @@ class HomesController < BaseController
         info[:remarks] = ""
         info[:delvery_time] = ""
         info[:delvery_date] = ""
-        info[:delivery_section] = "08"
+        info[:delivery_section] = row["Qty"] == "1" ? "08" : "06"
         info[:stock_section] = "01"
         info[:product_code] = "9784909687005"
         info[:product_name] = row["Item's Name"].gsub(/[\xe2\x80\x8b]+/, '').gsub(" ", "")

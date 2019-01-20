@@ -12,6 +12,8 @@
  *
  *= require dropzone/basic
  *= require dropzone/dropzone
+ *= require bootstrap-datetimepicker
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */

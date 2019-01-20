@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <%= form_tag homes_create_csv_path(format: :csv), method: 'post', multipart: true do %>
+    <%= form_tag homes_create_csv_path(format: :csv), method: 'post', multipart: true, class: "js-download-csv" do %>
 
     <div class="panel panel-default">
       <div class="panel-body">
@@ -42,45 +42,18 @@
         <p class='description'>
           easypay管理画面からCSVをダウンロードしてセットしてください<br>
           ※ こちらには<br>
-          <strong>一般販売PDF版</strong><br>
-          <strong>予約販売PDF版</strong><br>
           <strong>一般販売セット版(書籍+PDF)</strong><br>
-          <strong>予約販売セット版(書籍+PDF)</strong><br>
-          が含まれています。
+          <strong>紹介販売セット版(書籍+PDF)</strong><br>
+          の情報のみが抽出されます<br>
+          <strong>一般販売PDF版</strong><br>
+          <strong>紹介販売PDF版</strong><br>
+          は除外されますので、出力後のデータを一度ご確認ください
         </p>
         <div class="form-group" style='height: 40px; margin-top:20px;'>
           <div class="col-sm-12">
             <%= file_field_tag :easypay_all %>
           </div>
         </div>
-
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <h4>
-              <strong>PDF版を含む販売の付き合わせ用住所情報</strong>
-            </h4>
-            <p>
-              <a href="https://www.wix.com/my-account/" target="_blank">Wix管理画面を別タブで開く</a>
-            </p>
-            <p class='description'>
-              easypayで決済した場合に住所情報が入らないためWixのフォームで取得した住所情報CSVをセットしてください
-            </p>
-            <div class="form-group" style='height: 40px; margin-top:20px;'>
-              <div class="col-sm-12">
-                一般住所
-                <%= file_field_tag :easypay_general_address %>
-              </div>
-            </div>
-            <div class="form-group" style='height: 40px;'>
-              <div class="col-sm-12">
-                予約住所
-                <%= file_field_tag :easypay_reservation_address %>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
       </div>
     </div>
 
@@ -101,7 +74,41 @@
         </div>
       </div>
     </div>
-      <%= submit_tag 'CSVを読み込む', class:'btn btn-primary' %>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-sample">
+      出荷用CSVを出力する
+    </button>
+    <div class="modal" id="modal-sample" tabindex="-1">
+      <div class="modal-dialog" style="z-index: 10000;">
+
+        <!-- 3.モーダルのコンテンツ -->
+        <div class="modal-content">
+          <!-- 4.モーダルのヘッダ -->
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="modal-label">
+              出荷日を設定してください
+            </h4>
+          </div>
+          <!-- 5.モーダルのボディ -->
+          <div class="modal-body">
+            <div class='input-group date datepicker' style="width: 150px;">
+              <%= text_field_tag :publish_date, nil, class: 'form-control' %>
+              <span class="input-group-addon">
+                <span class="fa fa-calendar"></span>
+              </span>
+            </div>
+          </div>
+          <!-- 6.モーダルのフッタ -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+            <%= submit_tag '出力する', class:'btn btn-primary', onclick: "after_output_csv()" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <% end %>
   </div>
 </div>
