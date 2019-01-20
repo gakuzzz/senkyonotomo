@@ -42,11 +42,19 @@
         <p class='description'>
           easypay管理画面からCSVをダウンロードしてセットしてください<br>
           ※ こちらには<br>
-          <strong>一般販売セット版(書籍+PDF)</strong><br>
-          <strong>紹介販売セット版(書籍+PDF)</strong><br>
+          <strong>一般販売セット版(書籍+PDF)</strong>
+          <!-- %= text_field_tag :general_set_price, "", class: "form-control", style: "width:100px; display: inline-block;" %> -->
+          <br>
+          <strong>紹介販売セット版(書籍+PDF)</strong>
+          <!-- %= text_field_tag :special_set_price, "", class: "form-control", style: "width:100px; display: inline-block;" %> -->
+          <br>
           の情報のみが抽出されます<br>
-          <strong>一般販売PDF版</strong><br>
-          <strong>紹介販売PDF版</strong><br>
+          <strong>一般販売PDF版</strong>
+          <!-- %= text_field_tag :general_pdf_price, "", class: "form-control", style: "width:100px; display: inline-block;" %> -->
+          <br>
+          <strong>紹介販売PDF版</strong>
+          <!-- %= text_field_tag :special_pdf_price, "", class: "form-control", style: "width:100px; display: inline-block;" %> -->
+          <br>
           は除外されますので、出力後のデータを一度ご確認ください
         </p>
         <div class="form-group" style='height: 40px; margin-top:20px;'>

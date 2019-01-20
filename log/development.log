@@ -10256,3 +10256,178 @@ Sent data 出荷用データ_2019-01-20.csv (0.4ms)
 Completed 200 OK in 32ms (Views: 0.3ms | ActiveRecord: 1.6ms)
 
 
+Started GET "/" for 127.0.0.1 at 2019-01-20 18:38:06 +0900
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by HomesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (3.5ms)
+  Rendered shared/_notice.html.erb (0.3ms)
+  Rendered shared/_alert.html.erb (0.5ms)
+Completed 200 OK in 388ms (Views: 358.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-20 18:39:14 +0900
+Processing by HomesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (2.2ms)
+  Rendered shared/_notice.html.erb (0.3ms)
+  Rendered shared/_alert.html.erb (0.4ms)
+Completed 200 OK in 69ms (Views: 56.2ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/homes/create_csv.csv" for 127.0.0.1 at 2019-01-20 18:41:30 +0900
+Processing by HomesController#create_csv as CSV
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"h3MvXOiHDHkhuDpl4qMUfjsJXr9dhblJWH4rLgw1K5Sm5zkaagD3w/3k/KMKh0rZF3Q5LmiL+v7vdJEoDrCDdg==", "amazon_general"=>#<ActionDispatch::Http::UploadedFile:0x007fa5155bf3a8 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20190120-51817-1gcly0j.txt>, @original_filename="D_amazon_count.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"amazon_general\"; filename=\"D_amazon_count.txt\"\r\nContent-Type: text/plain\r\n">, "publish_date"=>"2019/01/23", "commit"=>"出力する"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+世田谷区成城２−３２−１８ガーデンテラス成城１０２
+Completed 500 Internal Server Error in 17ms (Views: 0.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/homes/create_csv.csv" for 127.0.0.1 at 2019-01-20 18:41:52 +0900
+Processing by HomesController#create_csv as CSV
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"h3MvXOiHDHkhuDpl4qMUfjsJXr9dhblJWH4rLgw1K5Sm5zkaagD3w/3k/KMKh0rZF3Q5LmiL+v7vdJEoDrCDdg==", "amazon_general"=>#<ActionDispatch::Http::UploadedFile:0x007fa514eb63b8 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20190120-51817-17iss6o.txt>, @original_filename="D_amazon_count.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"amazon_general\"; filename=\"D_amazon_count.txt\"\r\nContent-Type: text/plain\r\n">, "publish_date"=>"2019/01/23", "commit"=>"出力する"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+世田谷区成城２−３２−１８ガーデンテラス成城１０２
+Completed 500 Internal Server Error in 18ms (Views: 0.4ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/homes/create_csv.csv" for 127.0.0.1 at 2019-01-20 18:42:02 +0900
+Processing by HomesController#create_csv as CSV
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"h3MvXOiHDHkhuDpl4qMUfjsJXr9dhblJWH4rLgw1K5Sm5zkaagD3w/3k/KMKh0rZF3Q5LmiL+v7vdJEoDrCDdg==", "amazon_general"=>#<ActionDispatch::Http::UploadedFile:0x007fa51cd207d0 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20190120-51817-12dej6n.txt>, @original_filename="D_amazon_count.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"amazon_general\"; filename=\"D_amazon_count.txt\"\r\nContent-Type: text/plain\r\n">, "publish_date"=>"2019/01/23", "commit"=>"出力する"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+世田谷区成城２−３２−１８ガーデンテラス成城１０２
+福井市高木中央１−３２８スキット株式会社
+世田谷区成城２−３２−１８ガーデンテラス成城１０２
+京都市中京区西ノ京職司町２６
+姫路市北条1丁目227-101有限会社ダブルスワークショップ
+芦別市東頼城町23番地の1
+杉並区下井草5-19-14 スカイビュー井荻 301号室
+宮崎市吉村町曽師前甲3142ｰ2ルーチェ１　102号室
+新宿区早稲田鶴巻町521グリーンステージ早大通り406
+  Rendering homes/create_csv.csv.ruby
+  Rendered homes/create_csv.csv.ruby (3.6ms)
+  Rendering text template
+  Rendered text template (0.0ms)
+Sent data 出荷用データ_2019-01-20.csv (1.7ms)
+Completed 200 OK in 43ms (Views: 1.5ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/homes/create_csv.csv" for 127.0.0.1 at 2019-01-20 18:44:24 +0900
+Processing by HomesController#create_csv as CSV
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"h3MvXOiHDHkhuDpl4qMUfjsJXr9dhblJWH4rLgw1K5Sm5zkaagD3w/3k/KMKh0rZF3Q5LmiL+v7vdJEoDrCDdg==", "amazon_general"=>#<ActionDispatch::Http::UploadedFile:0x007fa514a56750 @tempfile=#<Tempfile:/var/folders/m9/70hlhrtj2y74bt_0pcn030p80000gn/T/RackMultipart20190120-51817-o1usd6.txt>, @original_filename="D_amazon_count.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"amazon_general\"; filename=\"D_amazon_count.txt\"\r\nContent-Type: text/plain\r\n">, "publish_date"=>"2019/01/23", "commit"=>"出力する"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+世田谷区成城２−３２−１８ガーデンテラス成城１０２
+福井市高木中央１−３２８スキット株式会社
+世田谷区成城２−３２−１８ガーデンテラス成城１０２
+京都市中京区西ノ京職司町２６
+姫路市北条1丁目227-101有限会社ダブルスワークショップ
+芦別市東頼城町23番地の1
+杉並区下井草5-19-14 スカイビュー井荻 301号室
+宮崎市吉村町曽師前甲3142ｰ2ルーチェ１　102号室
+新宿区早稲田鶴巻町521グリーンステージ早大通り406
+  Rendering homes/create_csv.csv.ruby
+  Rendered homes/create_csv.csv.ruby (2.6ms)
+  Rendering text template
+  Rendered text template (0.0ms)
+Sent data 出荷用データ_2019-01-20.csv (0.5ms)
+Completed 200 OK in 37ms (Views: 0.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-20 18:44:37 +0900
+Processing by HomesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (2.4ms)
+  Rendered shared/_notice.html.erb (0.3ms)
+  Rendered shared/_alert.html.erb (0.6ms)
+Completed 200 OK in 100ms (Views: 96.6ms | ActiveRecord: 0.3ms)
+
+
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT GET_LOCK('6961292046479492295', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateProducts (20190120094804)
+  [1m[35m (40.4ms)[0m  [1m[35mCREATE TABLE `products` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `product_id` int NOT NULL, `price` int NOT NULL, `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20190120094804')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('6961292046479492295')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/" for 127.0.0.1 at 2019-01-20 18:50:29 +0900
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by HomesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (3.2ms)
+  Rendered shared/_notice.html.erb (0.3ms)
+  Rendered shared/_alert.html.erb (0.8ms)
+Completed 200 OK in 359ms (Views: 332.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-20 18:51:31 +0900
+Processing by HomesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (1.2ms)
+  Rendered shared/_notice.html.erb (0.5ms)
+  Rendered shared/_alert.html.erb (0.5ms)
+Completed 200 OK in 52ms (Views: 47.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-20 18:51:37 +0900
+Processing by HomesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (1.2ms)
+  Rendered shared/_notice.html.erb (0.5ms)
+  Rendered shared/_alert.html.erb (0.6ms)
+Completed 200 OK in 61ms (Views: 57.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-20 18:51:55 +0900
+Processing by HomesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (1.6ms)
+  Rendered shared/_notice.html.erb (0.6ms)
+  Rendered shared/_alert.html.erb (0.9ms)
+Completed 200 OK in 97ms (Views: 92.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-20 18:53:45 +0900
+Processing by HomesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (1.5ms)
+  Rendered shared/_notice.html.erb (0.3ms)
+  Rendered shared/_alert.html.erb (0.9ms)
+Completed 200 OK in 64ms (Views: 60.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-20 18:54:00 +0900
+Processing by HomesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (2.1ms)
+  Rendered shared/_notice.html.erb (0.7ms)
+  Rendered shared/_alert.html.erb (0.6ms)
+Completed 200 OK in 91ms (Views: 86.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-01-20 18:56:01 +0900
+Processing by HomesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (1.4ms)
+  Rendered shared/_notice.html.erb (0.4ms)
+  Rendered shared/_alert.html.erb (0.9ms)
+Completed 200 OK in 77ms (Views: 72.6ms | ActiveRecord: 0.3ms)
+
+

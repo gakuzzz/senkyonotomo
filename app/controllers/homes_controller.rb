@@ -114,13 +114,13 @@ class HomesController < BaseController
         info[:email] = buyer_email
         info[:product_total_price] = item_price.to_s
         info[:fee] = "0"
-        info[:delivery_fee] = "0"
-        info[:total_price] = item_price.to_s
+        info[:delivery_fee] = "600"
+        info[:total_price] = (item_price.to_i + 600).to_s
         info[:site_code] = "snky"
         info[:remarks] = ""
         info[:delvery_time] = ""
         info[:delvery_date] = ""
-        info[:delivery_section] = "08"
+        info[:delivery_section] = quantity_purchased == "1" ? "08" : "06"
         info[:stock_section] = "01"
         info[:product_code] = sku
         info[:product_name] = product_name
